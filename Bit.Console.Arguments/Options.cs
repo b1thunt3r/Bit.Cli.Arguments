@@ -57,5 +57,13 @@ namespace Bit.Console.Arguments
         public string LongName { get; set; }
         public Action<string> Action { get; set; }
         public string Description { get; set; }
+        public OptionType Type { get; set; }
+    }
+
+    public enum OptionType
+    {
+        Required,
+        Optional,
+        Flag
     }
 }
