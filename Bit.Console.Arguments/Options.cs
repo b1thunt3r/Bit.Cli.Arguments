@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Bit.Console.Arguments
 {
@@ -49,21 +48,5 @@ namespace Bit.Console.Arguments
         {
             throw new System.NotImplementedException();
         }
-    }
-
-    public class Option
-    {
-        public string ShortName { get; set; }
-        public string LongName { get; set; }
-        public Action<string> Action { get; set; }
-        public string Description { get; set; }
-        public OptionType Type { get; set; }
-    }
-
-    public enum OptionType
-    {
-        Required,
-        Optional,
-        Flag
     }
 }
