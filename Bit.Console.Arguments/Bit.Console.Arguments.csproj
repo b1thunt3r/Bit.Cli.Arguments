@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="IArguments.cs" />
     <Compile Include="Option.cs" />
-    <Compile Include="Options.cs" />
     <Compile Include="OptionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
