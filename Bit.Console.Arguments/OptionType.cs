@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Bit.Console.Arguments
+namespace Bit.Cli.Arguments
 {
     [Flags]
     public enum OptionType

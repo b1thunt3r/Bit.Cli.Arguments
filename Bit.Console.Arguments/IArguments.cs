@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace Bit.Console.Arguments
+namespace Bit.Cli.Arguments
 {
     public interface IArguments
     {

@@ -1,8 +1,6 @@
-﻿
+﻿using System.Collections.Generic;
 
-using System.Collections.Generic;
-
-namespace Bit.Console.Arguments.Example
+namespace Bit.Cli.Arguments.Example
 {
     public class Arguments : IArguments
     {
@@ -28,7 +26,7 @@ namespace Bit.Console.Arguments.Example
             get { return _options; }
         }
 
-        public Arguments()
+        public Arguments(string[] args)
         {
             _options.Add(new Option
             {
@@ -38,6 +36,8 @@ namespace Bit.Console.Arguments.Example
                 Type = OptionType.Flag | OptionType.Required,
                 Action = b => Bool1 = (bool)b
             });
+
+            _options.Execute(args);
         }
     }
 }

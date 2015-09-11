@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bit.Console.Arguments", "Bit.Console.Arguments\Bit.Console.Arguments.csproj", "{0C92367E-69BC-4AC1-9333-A40B5C403B5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bit.Cli.Arguments", "Bit.Console.Arguments\Bit.Cli.Arguments.csproj", "{0C92367E-69BC-4AC1-9333-A40B5C403B5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bit.Console.Arguments.Example", "Bit.Console.Arguments.Example\Bit.Console.Arguments.Example.csproj", "{530CFDE5-5D2B-4538-82B4-ADB487C341A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bit.Cli.Arguments.Example", "Bit.Console.Arguments.Example\Bit.Cli.Arguments.Example.csproj", "{530CFDE5-5D2B-4538-82B4-ADB487C341A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

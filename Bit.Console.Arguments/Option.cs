@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bit.Console.Arguments
+namespace Bit.Cli.Arguments
 {
     public class Option
     {

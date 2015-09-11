@@ -1,2 +1,2 @@
-# Bit.Console.Arguments
+# Bit.Cli.Arguments
 Playing with arguments...
