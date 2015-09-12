@@ -49,7 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bit.Console.Arguments\Bit.Cli.Arguments.csproj">
+    <ProjectReference Include="..\Bit.Cli.Arguments\Bit.Cli.Arguments.csproj">
       <Project>{0c92367e-69bc-4ac1-9333-a40b5c403b5e}</Project>
       <Name>Bit.Cli.Arguments</Name>
     </ProjectReference>
