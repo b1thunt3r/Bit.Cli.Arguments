@@ -30,10 +30,37 @@ namespace Bit.Cli.Arguments.Example
         {
             _options.Add(new Option
             {
-                ShortName = "",
-                LongName = "",
-                Description = "",
+                ShortName = "b1",
+                LongName = "bool1",
+                Description = "Bool one",
                 Type = OptionType.Flag | OptionType.Required,
+                Action = b => Bool1 = (bool)b
+            });
+
+            _options.Add(new Option
+            {
+                ShortName = "b2",
+                LongName = "bool2",
+                Description = "Bool Two",
+                Type = OptionType.Flag | OptionType.Optional,
+                Action = b => Bool1 = (bool)b
+            });
+
+            _options.Add(new Option
+            {
+                ShortName = "b3",
+                LongName = "bool3",
+                Description = "Bool Three",
+                Type = OptionType.Flag | OptionType.Required,
+                Action = b => Bool1 = (bool)b
+            });
+
+            _options.Add(new Option
+            {
+                ShortName = "b4",
+                LongName = "bool4",
+                Description = "Bool Four",
+                Type = OptionType.Flag | OptionType.Optional,
                 Action = b => Bool1 = (bool)b
             });
 
