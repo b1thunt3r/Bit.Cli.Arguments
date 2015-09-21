@@ -1,64 +1,88 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Bit.Cli.Arguments
 {
-    public static class ExtensionMethods
+    public class OptionSet
     {
-
-        public static Option FindWithShortName(this IList<Option> options, string arg)
+        private readonly IList<Option> _options = new List<Option>();
+        public IList<Option> Options
         {
-            return options.FirstOrDefault(o => o.ShortName == arg);
+            get { return _options; }
         }
 
-        public static Option FindWithLongtName(this IList<Option> options, string arg)
+        private readonly StringBuilder _helpTextPrefix = new StringBuilder();
+        public StringBuilder HelpTextPrefix
         {
-            return options.FirstOrDefault(o => o.LongName == arg);
+            get { return _helpTextPrefix; }
         }
 
-        public static void PrintHelp(this IList<Option> options)
+        private readonly StringBuilder _helpTextSuffix = new StringBuilder();
+        public StringBuilder HelpTextSuffix
         {
-            foreach (var option in options)
+            get { return _helpTextSuffix; }
+        }
+
+        public void PrintHelpText()
+        {
+            Console.WriteLine(HelpTextPrefix.ToString());
+
+            Console.WriteLine("Options:");
+            foreach (var option in Options)
             {
+                string optStr = "";
                 if (string.IsNullOrWhiteSpace(option.ShortName) && !string.IsNullOrWhiteSpace(option.LongName))
                 {
-                    Console.WriteLine("", option.ShortName);
+                    optStr = "-" + option.ShortName;
                 }
                 else if (!string.IsNullOrWhiteSpace(option.ShortName) && string.IsNullOrWhiteSpace(option.LongName))
                 {
-
-                    Console.WriteLine("", option.LongName);
+                    optStr = "--" + option.LongName;
                 }
                 else if (!string.IsNullOrWhiteSpace(option.ShortName) && !string.IsNullOrWhiteSpace(option.LongName))
                 {
-
-                    Console.WriteLine("", option.ShortName, option.LongName);
+                    optStr = "-" + option.ShortName + ", --" + option.LongName;
                 }
+
+                Console.WriteLine("{0,10} {1}", optStr, option.Description);
             }
+
+            Console.WriteLine(HelpTextSuffix.ToString());
         }
 
-        public static void Execute(this IList<Option> options, string[] args)
+        public Option FindWithShortName(string arg)
+        {
+            return Options.FirstOrDefault(o => o.ShortName == arg);
+        }
+
+        public Option FindWithLongtName(string arg)
+        {
+            return Options.FirstOrDefault(o => o.LongName == arg);
+        }
+        public void Execute(string[] args)
         {
             foreach (var s in args)
             {
                 if (s.StartsWith("--"))
                 {
                     var arg = s.Substring(2).Split("=:".ToCharArray());
-                    if (arg.Length != 2) continue;
 
                     if (arg[0].ToUpper().Equals("HELP"))
                     {
-                        options.PrintHelp();
+                        PrintHelpText();
                         break;
                     }
 
-                    var name = options.FindWithLongtName(arg[0]);
+                    if (arg.Length != 2) continue;
+
+                    var name = FindWithLongtName(arg[0]);
                     if (name != null) ;
                 }
                 else if (s.StartsWith("-"))
                 {
-                    var name = options.FindWithShortName(s.Substring(1));
+                    var name = FindWithShortName(s.Substring(1));
                     if (name != null) ;
                 }
                 else if (s.StartsWith("/"))

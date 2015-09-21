@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace Bit.Cli.Arguments.Example
 {
     public class Arguments : IArguments
@@ -19,16 +18,18 @@ namespace Bit.Cli.Arguments.Example
         public int Integer3 { get; set; }
         public int Integer4 { get; set; }
 
-        private readonly IList<Option> _options = new List<Option>();
+        private readonly OptionSet _optionSet = new OptionSet();
 
-        public IList<Option> Options
+        public OptionSet OptionSet
         {
-            get { return _options; }
+            get { return _optionSet; }
         }
 
         public Arguments(string[] args)
         {
-            _options.Add(new Option
+
+
+            _optionSet.Options.Add(new Option
             {
                 ShortName = "b1",
                 LongName = "bool1",
@@ -37,7 +38,7 @@ namespace Bit.Cli.Arguments.Example
                 Action = b => Bool1 = (bool)b
             });
 
-            _options.Add(new Option
+            _optionSet.Options.Add(new Option
             {
                 ShortName = "b2",
                 LongName = "bool2",
@@ -46,7 +47,7 @@ namespace Bit.Cli.Arguments.Example
                 Action = b => Bool1 = (bool)b
             });
 
-            _options.Add(new Option
+            _optionSet.Options.Add(new Option
             {
                 ShortName = "b3",
                 LongName = "bool3",
@@ -55,7 +56,7 @@ namespace Bit.Cli.Arguments.Example
                 Action = b => Bool1 = (bool)b
             });
 
-            _options.Add(new Option
+            _optionSet.Options.Add(new Option
             {
                 ShortName = "b4",
                 LongName = "bool4",
@@ -64,7 +65,7 @@ namespace Bit.Cli.Arguments.Example
                 Action = b => Bool1 = (bool)b
             });
 
-            _options.Execute(args);
+            _optionSet.Execute(args);
         }
     }
 }
